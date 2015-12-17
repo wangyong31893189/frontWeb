@@ -1,0 +1,120 @@
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <!--<ul class="menu-list">-->
+        <!--<li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>-->
+        <!--<li><a href="/admin/category/list"><i class="ico ico-article"></i>文章管理</a></li>-->
+        <!--<li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>-->
+        <!--<li><a href="/admin/plugin/list"><i class="ico ico-article"></i>插件管理</a></li>-->
+        <!--<li><a href="/admin/user/info"><i class="ico ico-personal"></i>个人信息</a></li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right-box">
+        <div class="right-content publish-page">
+
+            <h2 class="title">查看用户</h2>
+            <div class="form-box">
+                <form action="/admin/user/add" method="post" id="userAccount_form">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+
+                    <div class="row">
+                        <label class="label">用户名:<span></span></label>
+                        <div class="input-box"><%=userAccount.userName %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">角色ID:<span></span></label>
+                        <div class="input-box"><%=userAccount.roleId %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">真实姓名:<span></span></label>
+                        <div class="input-box"><%=userAccount.realName %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">昵称:<span></span></label>
+                        <div class="input-box"><%=userAccount.nickName %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">邮箱:<span></span></label>
+                        <div class="input-box"><%=userAccount.email %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">个人博客地址:<span></span></label>
+                        <div class="input-box"><%=userAccount.website %></div>
+                    </div>
+
+                    <div class="row">
+                        <label class="label">头像地址:<span></span></label>
+                        <div class="input-box"><%=userAccount.picPath %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">用户简介:<span></span></label>
+                        <div class="input-box"><%=userAccount.userDesc %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">用户生日:<span></span></label>
+                        <div class="input-box" data="<%=userAccount.birth%>" id="birth"></div>
+                        <!--<input type="text" input data="<%=userAccount.birth%>" value="" id="input_birth">-->
+                    </div>
+                    <div class="row">
+                        <label class="label">用户性别:<span></span></label>
+                        <div class="input-box">
+                            <%if(userAccount.sex==1){ %>
+                                 女
+                            <%}else if(userAccount.sex==0){%>
+                                男
+                            <% }%>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="label">国家:<span></span></label>
+                        <div class="input-box"><%=userAccount.county %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">省:<span></span></label>
+                        <div class="input-box"><%=userAccount.province %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">城市:<span></span></label>
+                        <div class="input-box"><%=userAccount.city %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">区:<span></span></label>
+                        <div class="input-box"><%=userAccount.district %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">详细地址:<span></span></label>
+                        <div class="input-box"><%=userAccount.address %></div>
+                    </div>
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <!-- <button type="button" class="save-btn active" id="submit_btn">保存</button> -->
+                            <button type="button" class="cancel-btn" onclick="history.back()">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<!--<script src="/admin/js/user/view.js"></script>-->
+<script src="/libs/moment/moment.js"></script>
+<script>
+var birth=$("#birth").attr("data");
+//alert(birth);//Mon Nov 09 2015 00:00:00 GMT+0800 (中国标准时间)
+var date=moment(birth).format('YYYYMMDD');
+$("#birth").html(date);
+//alert(date);
+</script>
+
+

@@ -1,0 +1,69 @@
+<% include ../common/header %>
+
+    <section class="content">
+        <div class="left-box">
+            <% include ../common/left %>
+        </div>
+        <div class="right-box">
+            <div class="right-content publish-page">
+                <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                <h2 class="title">编辑角色</h2>
+                <div class="form-box">
+                    <form action="/admin/authority/add" method="post" id="category_form">
+                        <!-- <h3>注： 带 * 为必填项</h3> -->
+                        <div class="row">
+                            <label class="label">角色名称:
+                                <span>*</span>
+                            </label>
+                            <div class="input-box">
+                                <input id="roleId" type="hidden" value="<%= role.id%>">
+                                <input class="input" type="text" name="roleName" id="roleName" placeholder="请输入角色名称" value="<%= role.roleName%>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="label">角色描述:</label>
+                            <div class="input-box">
+                                <textarea class="input" style="height:100px" name="description" id="description" placeholder="请输入角色描述"><%= role.desc%></textarea>
+                            </div>
+                        </div>
+                        <div >
+                            <table class="table" border="0" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <td><input type="checkbox"  class="ico" id="checkall"></td>
+                                        <td>描述</td>
+                                        <td>Code</td>
+                                        <td>URL</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="datalist">
+                                    <% for(var i=0,len=role.actions.length;i<len;i++){ %>
+                                    <tr>
+                                        <td>
+                                            <% if(role.actions[i].checked === true){%>
+                                                <input type="checkbox"  class="ico" name="ids" value="<%=role.actions[i].id %>" checked="true"></td>
+                                            <%}else{%>
+                                                <input type="checkbox"  class="ico" name="ids" value="<%=role.actions[i].id %>"></td>
+                                            <%}%>
+                                        <td><%= role.actions[i].desc%></td>
+                                        <td><%= role.actions[i].code%></td>
+                                        <td><%= role.actions[i].url%></td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row row-btn">
+                            <div class="text-center">
+                                <button type="button" class="save-btn active" id="submit_btn">保存</button>
+                                <button type="button" class="cancel-btn" onclick="history.back()">取消</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% include ../common/commonJs %>
+        <script type="text/javascript" src="/admin/js/message.js"></script>
+        <script src="/admin/js/authority/edit.js"></script>

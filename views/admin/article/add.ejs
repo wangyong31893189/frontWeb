@@ -1,0 +1,105 @@
+<% include ../common/top %>
+<link rel="stylesheet" type="text/css" href="/libs/editor.md/css/editormd.min.css" />
+<% include ../common/commonCss %>
+</head>
+<body>
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+
+    </div>
+    <div class="right-box">
+        <!--  <div class="top"><input type="text" class="search-txt" placeholder="请输入文章名称"><button type="button" class="search-btn">搜索</button></div> -->
+        <div class="right-content publish-page">
+            <!-- <div class="actions">
+                <button type="button" class="publish-btn"><i class="ico ico-publish"></i>发布
+                </button>
+                <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+
+                 <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button>
+            </div> -->
+            <h2 class="title">添加文章</h2>
+            <div class="form-box">
+                <form action="/admin/article/add" method="post" id="article_form" enctype="multipart/form-data">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <div class="row">
+                    <label class="label-txt">作者:<span>*</span></label>
+                    <div class="input-box"><input class="input" type="text" name="author" id="author" placeholder="请输入作者" value="<%=user.userName%>"></div>
+                    </div>
+                    <div class="row">
+                        <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                        <label class="label-txt">文章标题:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="text" name="title" id="title" placeholder="请输入文章名称"></div>
+                    </div>
+                    <div class="row">
+                   <label class="label">文章图片:<span></span></label>
+                   <div class="file-box">
+                   <div class="input-box short-width"><input class="input" id="articlePic" name="articlePicShow" type="text" placeholder="请选择文章图片"></div>
+                   <button type="button" class="upload-btn"><i class="ico ico-upload"></i>上传</button>
+                   <input type="file" name="articlePic" class="publish-file" id="public_file" accept="image/*">
+                   </div>
+                 </div>
+
+                    <!--<div class="row">-->
+                        <!--<label class="label-txt">文章代码:<span>*</span></label>-->
+                        <!--<div class="input-box"><input class="input" type="text" name="articleCode" id="articleCode" placeholder="请输入文章代码"></div>-->
+                    <!--</div>-->
+                    <div class="row">
+                   <label class="label">文章类别:<span>*</span></label>
+                   <div class="select-box">
+                        <select class="select" name="categoryName" id="categoryName">
+                                <% for(var i=0,len=categorys.length;i<len;i++){ %>
+                                <option value="<%=categorys[i].categoryCode %>|||<%=categorys[i].categoryName %>"><%=categorys[i].categoryName %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                        <input type="hidden" name="categoryCode" value="categoryCode">
+                 </div>
+
+                    <div class="row">
+                        <label class="label-txt">正文:<span>*</span></label>
+                        <div class="textarea-box" id="editormd">
+                            <!-- <div class="editor"> -->
+                            <textarea id="content" style="display:none;" placeholder="这里输入内容" autofocus name="content" ></textarea>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <button type="button" class="save-btn active" id="submit_btn">保存</button>
+                            <button type="button" class="cancel-btn" onclick="history.back()">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+
+<!--编辑器 simditor-->
+<!-- <link rel="stylesheet" type="text/css" href="/js/simditor-2.2.4/styles/simditor.css" /> -->
+
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+<!--<script type="text/javascript" src="/js/simditor-2.2.4/scripts/simditor-all.js"></script>-->
+<!-- <script type="text/javascript" src="/js/simditor-2.2.4/scripts/jquery.min.js"></script>
+<script type="text/javascript" src="/js/simditor-2.2.4/scripts/module.js"></script>
+<script type="text/javascript" src="/js/simditor-2.2.4/scripts/hotkeys.js"></script>
+<script type="text/javascript" src="/js/simditor-2.2.4/scripts/uploader.js"></script>
+<script type="text/javascript" src="/js/simditor-2.2.4/scripts/simditor.js"></script> -->
+<script type="text/javascript" src="/libs/editor.md/editormd.js"></script>
+<script src="/admin/js/article/add.js"></script>
+<script type="text/javascript" src="/admin/js/message.js"></script>
+
+</body>
+</html>

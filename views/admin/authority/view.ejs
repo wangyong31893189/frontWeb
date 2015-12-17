@@ -1,0 +1,50 @@
+<% include ../common/header %>
+
+    <section class="content">
+        <div class="left-box">
+            <% include ../common/left %>
+        </div>
+        <div class="right-box">
+            <div class="right-content publish-page">
+                <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                <h2 class="title">显示角色</h2>
+                <div class="form-box">
+                    <form action="/admin/authority/add" method="post" id="category_form">
+                        <div class="row">
+                            <label class="label">角色名称:</label><p><%= role.roleName%></p>
+                        </div>
+                        <div class="row">
+                            <label class="label">角色描述:</label><p><%= role.desc%></p>
+                        </div>
+                        <div >
+                            <table class="table" border="0" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <td>描述</td>
+                                        <td>Code</td>
+                                        <td>URL</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="datalist">
+                                    <% for(var i=0,len=role.actions.length;i<len;i++){ %>
+                                    <tr>
+                                        <td><%= role.actions[i].desc%></td>
+                                        <td><%= role.actions[i].code%></td>
+                                        <td><%= role.actions[i].url%></td>
+                                    </tr>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row row-btn">
+                            <div class="text-center">
+                                <button type="button" class="cancel-btn" onclick="history.back()">返回</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% include ../common/commonJs %>
+        <script type="text/javascript" src="/admin/js/message.js"></script>

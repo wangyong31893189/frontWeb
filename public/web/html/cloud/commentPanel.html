@@ -1,0 +1,46 @@
+<div id="commentPanel" class="comment">
+    <p class="total">全部评论（<span uku-text="commentCtrl.currentComments.length"></span>）</p>
+    <ul class="comment-list">
+        <li class="first" uku-repeat="comment in commentCtrl.currentComments">
+            <div class="left">
+                <img src="web/images/user.jpg">
+            </div>
+            <div class="right">
+                <p class="name" style="float:left">{{comment.nickName}}</p><span uku-style="comment.showReplyTo">回复<a>{{comment.replyTo}}</a>:</span>
+                <div style="clear:both" />
+                <p class="comment-content">{{comment.content}}</p>
+                <p><span class="time">{{comment.timeLabel}}</span><span class="replay" uku-onclick="parent.commentCtrl.replyComment(comment)"><i class="ico ico-replay"></i><a href="#comment_form">回复</a></span></p>
+            </div>
+        </li>
+    </ul>
+    <div class="publish-comment">
+        <a name="comment_form"></a>
+        <div class="left">
+            <i class="ico ico-user"></i>
+        </div>
+        <div class="right">
+            <div style="float:left">
+                <input type="text" class="nickname" placeholder="昵称（必填）" uku-value="commentCtrl.newComment.nickname" uku-onblur="commentCtrl.validateInput('nickname')">
+                <label class="errorMessage" uku-style="commentCtrl.commentValidator.showNickNameValidator">{{commentCtrl.commentValidator.msgNickName}}</label>
+            </div>
+            <div style="float:left">
+                <input type="text" class="email" placeholder="邮箱（必填）" uku-value="commentCtrl.newComment.email" uku-onblur="commentCtrl.validateInput('email')">
+                <label class="errorMessage" uku-style="commentCtrl.commentValidator.showEmailValidator">{{commentCtrl.commentValidator.msgEmail}}</label>
+            </div>
+
+            <!--<input type="text" class="website" placeholder="站点" uku-value="commentCtrl.newComment.website">-->
+        </div>
+        <div class="left">
+
+        </div>
+        <div class="right">
+            <div uku-style="commentCtrl.showReplyToWho">
+                回复:<span>{{commentCtrl.reply.nickName}}</span> <span><a class="handCursor" uku-onclick="commentCtrl.cancelReply()">[x]</a></span>
+            </div>
+            <textarea class="publish-content" placeholder="吐个嘈呀~" uku-value="commentCtrl.newComment.content" uku-onblur="commentCtrl.validateInput('content')"></textarea>
+            <div style="clear:both" />
+            <label class="errorMessage" uku-style="commentCtrl.commentValidator.showContentValidator">{{commentCtrl.commentValidator.msgContent}}</label>
+            <button class="publish-btn" type="button" uku-onclick="commentCtrl.publishComment()">发布</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+/node_modules/*
+/.idea/*
+/.git/*
+/node_modules
+/.idea
+/public/upload
+/logs
+/public/files
+

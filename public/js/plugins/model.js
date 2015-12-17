@@ -1,0 +1,86 @@
+define("pluginModel",["jquery"],function($){
+	return {
+		getPluginContentService:function(id,callback){//初始化界面显示
+			$.ajax({
+	            type:"get",
+	            //url:'/admin/article/del?ids='+ids, //get方式
+	            url:'/plugin/'+id,//get
+	            data:{},
+	            dataType:"json",
+	            success:function(msg){
+	                if(msg.status==0){
+	                    //window.location.reload();
+	                    if(callback){
+	                    	callback({plugin:msg.plugin});
+	                    }
+	                }
+	            },
+	            error:function(msg){
+	                console.log(msg);
+	            }
+	        });
+		},
+		getPluginsService:function(callback){//初始化界面显示
+			$.ajax({
+	            type:"get",
+	            //url:'/admin/article/del?ids='+ids, //get方式
+	            url:'/plugin/list',//get
+	            data:{},
+	            dataType:"json",
+	            success:function(msg){
+	                if(msg.status==0){
+	                    //window.location.reload();
+	                    if(callback){
+	                    	callback({plugins:msg.plugins,user:msg.user});
+	                    }
+	                }
+	            },
+	            error:function(msg){
+	                console.log(msg);
+	            }
+	        });
+		},
+		getCommentsByPluginIdService:function(id,callback){
+			$.ajax({
+	            type:"get",
+	            //url:'/admin/article/del?ids='+ids, //get方式
+	            url:'/plugin/comment/list/'+id,//get
+	            data:{},
+	            dataType:"json",
+	            success:function(msg){
+	                if(msg.status==0){
+	                    //window.location.reload();
+	                    if(callback){
+	                    	callback({comments:msg.comments,length:msg.length});
+	                    }
+	                }
+	            },
+	            error:function(msg){
+	                console.log(msg);
+	            }
+	        });
+		},
+		addCommentsService:function(options,callback){
+			$.ajax({
+	            type:"post",
+	            //url:'/admin/article/del?ids='+ids, //post方式
+	            url:'/plugin/comment/add',//post
+	            data:options,
+	            dataType:"json",
+	            success:function(msg){
+	                if(msg.status==0){
+	                    //window.location.reload();
+	                    if(callback){
+	                    	callback({comment:msg.comment});
+	                    }
+	                }else if(msg.status==-1){
+	                	alert(msg.msg);
+	                }
+	            },
+	            error:function(msg){
+	                console.log(msg);
+	            }
+	        });
+		}
+	};
+});

@@ -1,0 +1,73 @@
+<% include ../common/header %>
+<link rel="stylesheet" type="text/css" href="/libs/editor.md/css/editormd.min.css" />
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <!--<ul class="menu-list">-->
+            <!--<li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>-->
+            <!--<li><a href="/admin/category/list"><i class="ico ico-article"></i>文章管理</a></li>-->
+            <!--<li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>-->
+            <!--<li><a href="/admin/plugin/list"><i class="ico ico-article"></i>插件管理</a></li>-->
+            <!--<li><a href="/admin/user/info"><i class="ico ico-personal"></i>个人信息</a></li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right-box">
+        <div class="right-content publish-page">
+
+            <h2 class="title">添加插件</h2>
+            <div class="form-box">
+                <form action="/admin/plugin/add" method="post" id="plugin_form">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                    <div class="row">
+                        <label class="label">插件名称:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="text" name="title" id="title" placeholder="请输入插件名称"></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">作者:<span></span></label>
+                        <div class="input-box"><input class="input" type="text" name="author" id="author" placeholder="请输入作者名称"></div>
+                    </div>
+
+                    <div class="row">
+                        <label class="label-txt">实例地址:<span></span></label>
+                        <div class="input-box"><input class="input" type="text" name="demoUrl" id="demoUrl" placeholder="请输入实例地址"></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">git地址:<span></span></label>
+                        <div class="input-box"><input class="input" type="text" name="gitUrl" id="gitUrl" placeholder="请输入git地址"></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">标签:<span></span></label>
+                        <div class="input-box"><input class="input" type="text" name="tags" id="tags" placeholder="标签以,号分隔，最多可为5个"></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">插件代码:<span>*</span></label>
+                        <div class="textarea-box" id="editormd">
+                            <!-- <div class="editor"> -->
+                            <textarea id="content" style="display:none;" placeholder="这里输入内容" autofocus name="content" ></textarea>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <button type="button" class="save-btn active" id="submit_btn">保存</button>
+                            <button type="button" class="cancel-btn" onclick="history.back()">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<script type="text/javascript" src="/libs/editor.md/editormd.js"></script>
+<script type="text/javascript" src="/admin/js/message.js"></script>
+<script src="/admin/js/plugin/add.js"></script>

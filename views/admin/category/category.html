@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>类别管理列表</title>
+    <!-- Favicons-->
+    <!--  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon" type="image/x-icon" href="../img/apple-touch-icon-57x57-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="../img/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="../img/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="../img/apple-touch-icon-144x144-precomposed.png"> -->
+
+    <!-- CSS -->
+    <link href="../css/common.css" rel="stylesheet">
+    <!-- <link href="../css/index.css" rel="stylesheet"> -->
+
+    <!--[if lt IE 9]>
+        <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header class="head" id="top">
+        <div class="logo">
+            <img src="../img/logo.png"/>
+        </div>
+        <div class="title">99无限前端开发管理平台</div>
+        <div class="right">
+            <div class="time">上次登录：2015年8月12日 16:15</div><div class="login-out"><i class="ico ico-login-out"></i>
+            <p>退出</p>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="content">
+        <div class="left-box">
+            <div class="user">
+                <div class="pic">
+                    <img src="../images/pic.png">
+                </div>
+                <div class="right">
+                    <h3>Hello</h3>
+                    <p>汤姆猫儿</p>
+                </div>
+            </div>
+           <ul class="menu-list">
+               <li><a href="#"><i class="ico ico-index"></i>我的首页</a></li>
+               <li class="active"><a href="#"><i class="ico ico-article"></i>文章管理</a></li>
+               <li><a href="#"><i class="ico ico-category"></i>类别管理</a></li>
+               <li><a href="#"><i class="ico ico-personal"></i>个人信息</a></li>
+           </ul>
+       </div>
+       <div class="right-box">
+           <div class="top"><input type="text" class="search-txt" placeholder="请输入文章名称"><button type="button" class="search-btn">搜索</button></div>
+           <div class="right-content">
+               <div class="actions">
+                   <button type="button" class="publish-btn"><i class="ico ico-publish"></i>新添
+                   </button>
+                   <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+
+                    <!-- <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button> -->
+               </div>
+               <table class="table" border="0" cellpadding="0" cellspacing="0">
+                   <thead>
+                       <tr>
+                           <td width="5%"><input type="checkbox" class="ico"></td>
+                           <td width="5%">序号</td>
+                           <td width="20%">文章类别</td>
+                           <td width="20%">创建人</td>
+                           <td width="20%">发表时间</td>
+                           <td width="30%">操作</td>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>1</td>
+                           <td>编码技术</td>
+                           <td>丫蛋儿</td>
+                           <td>2015-08-08</td>
+                           <td>
+                            <div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div>
+                           </td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>2</td>
+                            <td>性能优化 </td>
+                            <td>胖仔</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>3</td>
+                            <td>
+                            前沿技术 </td>
+                            <td>
+                            汤姆猫</td>
+                            <td>2015-08-08</td>
+                            <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>4</td>
+                           <td>编码技术</td>
+                            <td>
+                            LILIY</td>
+                            <td>2015-08-08</td>
+                            <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>5</td>                           <td>性能优化</td>
+                           <td>丫蛋儿</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>6</td>
+                            <td>前后端分离 </td>
+                            <td>胖仔</td>
+                            <td>2015-08-08</td>
+                            <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>7</td>
+                            <td>编码技术</td>
+                            <td>汤姆猫</td>
+                            <td>2015-08-08</td>
+                            <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>8</td>
+                           <td>性能优化 </td>
+                           <td>LILIY</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>9</td>
+                           <td>前沿技术 </td>
+                           <td>丫蛋儿</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>10</td>
+                           <td>编码技术 </td>
+                           <td>胖仔</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>11</td>
+                           <td>性能优化 </td>
+                           <td>汤姆猫</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td><input type="checkbox" class="ico"></td>
+                           <td>12</td>
+                           <td>性能优化 </td>
+                           <td>LILIY</td>
+                           <td>2015-08-08</td>
+                           <td><div class="operate-action">
+                            <button type="button" class="view-btn"><i class="ico ico-view"></i>查看</button>
+                            <button type="button" class="edit-btn"><i class="ico ico-edit"></i>编辑</button>
+                            <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+                            </div></td>
+                       </tr>
+                       <tr>
+                           <td colspan="7">
+                               <div class="pager-box">
+                                   <ul>
+                                       <li><a href="#"><i class="ico ico-page-prev"></i></a></li>
+                                       <li><a href="#">1</a></li>
+                                       <li><a href="#">2</a></li>
+                                       <li><a href="#">3</a></li>
+                                       <li><a href="#">4</a></li>
+                                       <li>...</li>
+                                       <li><a href="#">9</a></li>
+                                       <li><a href="#"><i class="ico ico-page-next"></i></a></li>
+                                   </ul>
+                               </div>
+                           </td>
+                       </tr>
+                   </tbody>
+               </table>
+
+           </div>
+       </div>
+    </section>
+
+
+    <section class="wrap page-top-box">
+        <div class="page-top">
+            <a href="#top"><i class="ico ico-top"></i></a>
+        </div>
+    </section>
+<!-- 页尾内容 -->
+    <!--  <footer class="foot">
+       
+        </footer> -->
+
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/web/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<header class="head" id="top">
+    <div class="wrap">
+        <div class="logo">
+            <img src="../../../web/images/logo.png" />
+        </div>
+        <ul class="nav">
+            <% items.forEach(function(item){%>
+              <li><a href='<%= item.url %>' <% if(item.url === key){ %>class='active'<% } %> ><%= item.name %></a></li>
+            <% }) %>
+        </ul>
+        <div class="right-box">
+            <div class="search-box">
+                <input type="search" placeholder="在这里搜索...">
+                <i class="ico ico-search"></i>
+            </div>
+            <% if(user) {%>
+                <a href="/admin/user/info"><%=user.nickName %></a>
+            <% }else {%>
+                <a href="/admin/login">登录</a>
+            <% }%>
+        </div>
+    </div>
+</header>

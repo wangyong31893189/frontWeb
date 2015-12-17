@@ -1,0 +1,11 @@
+
+<ul class="list" uku-style="cloudCtrl.articleListStatus">
+    <li uku-repeat="article in cloudCtrl.articles" uku-onclick="parent.cloudCtrl.articleItemClickHandler(article)">
+        <div class="top"><img uku-src="article.thumbnail" style="width:280px;height:150px"></div>
+        <div class="bottom">
+            <p class="title"><a uku-text="article.title"></a></p>
+            <p class="sub-title"><span class="time" uku-text="article.timeLabel"></span>
+            <!--<span class="favorite"><i class="ico ico-favorite"></i>30</span></p>-->
+        </div>
+    </li>
+</ul>

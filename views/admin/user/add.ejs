@@ -1,0 +1,53 @@
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <!--<ul class="menu-list">-->
+        <!--<li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>-->
+        <!--<li><a href="/admin/category/list"><i class="ico ico-article"></i>文章管理</a></li>-->
+        <!--<li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>-->
+        <!--<li><a href="/admin/plugin/list"><i class="ico ico-article"></i>插件管理</a></li>-->
+        <!--<li><a href="/admin/user/info"><i class="ico ico-personal"></i>个人信息</a></li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right-box">
+        <div class="right-content publish-page">
+
+            <h2 class="title">添加用户</h2>
+            <div class="form-box">
+                <form action="/admin/user/add" method="post" id="userAccount_form">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                    <div class="row">
+                        <label class="label">用户名:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="text" name="userName" id="userName" value="" placeholder="请输入用户名"></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">密码:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="password" name="password" id="password" value="" placeholder="请输入密码"></div>
+                    </div>
+
+
+
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <button type="button" class="save-btn active" id="submit_btn">保存</button>
+                            <button type="button" class="cancel-btn" onclick="history.back()">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<script type="text/javascript" src="/admin/js/message.js"></script>
+<script src="/admin/js/user/add.js"></script>

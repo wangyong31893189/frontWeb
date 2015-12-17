@@ -1,0 +1,86 @@
+<% include ../common/top %>
+
+<link rel="stylesheet" type="text/css" href="/libs/editor.md/css/editormd.min.css" />
+<% include ../common/commonCss %>
+</head>
+<body>
+    <% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+
+    </div>
+    <div class="right-box">
+        <!--  <div class="top"><input type="text" class="search-txt" placeholder="请输入文章名称"><button type="button" class="search-btn">搜索</button></div> -->
+        <div class="right-content publish-page">
+            <!-- <div class="actions">
+                <button type="button" class="publish-btn"><i class="ico ico-publish"></i>发布
+                </button>
+                <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+
+                 <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button>
+            </div> -->
+            <h2 class="title">查看文章</h2>
+            <div class="form-box">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <div class="row">
+                        <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                        <label class="label-txt">文章标题:<span>*</span></label>
+                        <div class="input-box"><%=article.title %></div>
+                    </div>
+                    <div class="row">
+                   <label class="label">文章图片:<span>*</span></label>
+                  <!--  <div class="file-box">
+                  <div class="input-box short-width"><input class="input" id="articlePic" type="text"  value="<%=article.articlePic %>" placeholder="请选择文章图片"></div>
+                  <button type="button" class="upload-btn"><i class="ico ico-upload"></i>上传</button>
+                  <input type="file" name="articlePic" class="publish-file" id="public_file" accept="image/*" >
+                  <input type="hidden" id="articlePicEdit" value="<%=article.articlePic %>">
+                  </div> -->
+                 </div>
+                     <% if (article.articlePic){%>
+                   <div class="clear">
+                   <img src="<%=article.articlePic %>">
+                   </div>
+                   <%}%>
+                    <div class="row">
+                   <label class="label">文章类别:<span>*</span></label>
+                   <div class="input-box">
+                               <%=article.categoryName %>
+                        </div>
+                 </div>
+
+                    <div class="row">
+                        <label class="label-txt">正文:<span>*</span></label>
+                        <div class="textarea-box" id="editormd" style="line-height:initial;">
+                             <!-- <div class="editor"> -->
+                            <textarea id="content" style="display:none;" placeholder="这里输入内容" autofocus name="content" ><%-article.content %></textarea>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <button type="button" class="cancel-btn" onclick="history.back()">返回</button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<!--markdown 编辑器-->
+<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/libs/editor.md/editormd.js"></script>
+<script src="/admin/js/article/view.js"></script>
+<script type="text/javascript" src="/admin/js/message.js"></script>
+
+</body>
+</html>

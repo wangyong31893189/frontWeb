@@ -1,0 +1,62 @@
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <!--<ul class="menu-list">-->
+            <!--<li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>-->
+            <!--<li><a href="/admin/article/list"><i class="ico ico-article"></i>文章管理</a></li>-->
+            <!--<li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>-->
+            <!--<li><a href="/admin/user/info"><i class="ico ico-personal"></i>个人信息</a></li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right-box">
+        <!--  <div class="top"><input type="text" class="search-txt" placeholder="请输入文章名称"><button type="button" class="search-btn">搜索</button></div> -->
+        <div class="right-content publish-page">
+            <!-- <div class="actions">
+                <button type="button" class="publish-btn"><i class="ico ico-publish"></i>发布
+                </button>
+                <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+
+                 <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button>
+            </div> -->
+            <h2 class="title">个人信息</h2>
+            <div class="form-box">
+                <form action="/admin/user/uploading" method="post" enctype='multipart/form-data' > <!-- enctype='multipart/form-data'-->
+
+
+                    <div class="row">
+                        <label class="label">头像:<span></span></label>
+                        <div class="input-box">
+                            <!--<img src="<= user.picPath>" >-->
+                            <input class="input" type="file" name="inputFile"  multiple='mutiple' >  <!-- id="picPath"-->
+                            <input   name="btnUp"   type='submit' value='上传'>
+                            <!--input(name='btnUp', type='submit',value='上传')-->
+
+                        </div>
+                    </div>
+
+
+
+
+                    <!--<div class="row row-btn">-->
+                        <!--<div class="text-center">-->
+                            <!--<button type="button" class="save-btn active" id="submit_btn">保存</button>-->
+                            <!--<button type="button" class="cancel-btn" onclick="history.back()">取消</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<!--<script src="/admin/js/article/add.js"></script>-->
+

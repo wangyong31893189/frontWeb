@@ -1,0 +1,91 @@
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+
+    </div>
+    <div class="right-box">
+        <div class="top"><input type="text" class="search-txt" id="keyword" placeholder="请输入用户名称" value="<%=keyword  %>"><button type="button" class="search-btn" id="search_btn">搜索</button></div>
+        <div class="right-content">
+            <div class="actions">
+                <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                <% if(user&&user.urls['user_del']){ %>
+                <button type="button" class="publish-btn" id="add_btn"><i class="ico ico-publish"></i>新添
+                </button>
+                <% } %>
+                <% if(user&&user.urls['user_del']){ %>
+                <button type="button" class="del-btn" id="del_all_btn"><i class="ico ico-del"></i>删除</button>
+                <% } %>
+
+                <!-- <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button> -->
+            </div>
+            <table class="table" border="0" cellpadding="0" cellspacing="0">
+                <thead>
+                <tr>
+                    <% if(user&&user.urls['user_del']){ %>
+                    <td width="5%"><input type="checkbox" class="ico" id="checkall"></td>
+                    <% } %>
+                    <td width="5%">序号</td>
+                    <td width="35%">用户名称</td>
+                    <td width="30%">操作</td>
+                </tr>
+                </thead>
+                <tbody id="datalist">
+                <% for(var i=0,len=userAccount.length;i<len;i++){ %>
+                <tr>
+                    <% if(user&&user.urls['user_del']){ %>
+                    <td><input type="checkbox" class="ico" name="ids" value="<%=userAccount[i].id %>"></td>
+                    <% } %>
+                    <td><%=userAccount[i].id %></td>
+                    <td><%=userAccount[i].userName %></td>
+
+
+                    <td>
+                        <div class="operate-action">
+                            <!--<button class="edit-btn verify-btn" type="button" data-id="<%=userAccount[i].id %>">审核</button>-->
+                            <% if(user&&user.urls['user_view']){ %>
+                            <button type="button" class="view-btn" onclick="window.location='/admin/user/view/<%=userAccount[i].id %>'"><i class="ico ico-view"></i>查看</button>
+                            <% } %>
+                            <% if(user&&user.urls['user_edit']){ %>
+                            <button type="button" class="edit-btn" onclick="window.location='/admin/user/edit/<%=userAccount[i].id %>'"><i class="ico ico-edit"></i>编辑</button>
+                            <% } %>
+                            <% if(user&&user.urls['user_reset_pass']){ %>
+                            <button type="button" class="edit-btn" onclick="window.location='/admin/user/changePassword/<%=userAccount[i].id %>'"><i class="ico ico-edit"></i>重置密码</button>
+                            <% } %>
+                            <% if(user&&user.urls['user_assign']){ %>
+                            <button type="button" class="edit-btn" onclick="window.location='/admin/user/assign/<%=userAccount[i].id %>'"><i class="ico ico-edit"></i>分配角色</button>
+                            <% } %>
+                            <% if(user&&user.urls['user_del']){ %>
+                            <button type="button" class="del-btn" data-id="<%=userAccount[i].id %>"><i class="ico ico-del"></i>删除</button>
+                            <% } %>
+                        </div>
+                    </td>
+                </tr>
+                <% } %>
+                <tr>
+                    <td colspan="7">
+                        <div class="pager-box">
+                            <%- pagerResult %>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="wrap page-top-box">
+    <div class="page-top">
+        <a href="#top"><i class="ico ico-top"></i></a>
+    </div>
+</section>
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+    </footer> -->
+<% include ../common/commonJs %>
+<script type="text/javascript" src="/admin/js/message.js"></script>
+<script type="text/javascript" src="/admin/js/user/list.js"></script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="stylesheet" href="../../web/css/cloud.css">-->
+    <link rel="stylesheet" href="../../libs/editor.md/css/editormd.preview.css">
+    <script data-main="../../js/cloud/main" src="../../libs/requirejs/require.js"></script>
+    <title>
+        <%=title%>
+    </title>
+    <link href="../../web/css/common.css" rel="stylesheet">
+</head>
+
+<body uku-application>
+    <% include common/header %>
+    <section class="wrap">
+        <nav class="navigation">
+            <span>您当前的位置：</span><span><a class="handCursor" href="cloud">分享云</a></span><span uku-repeat="nav in cloudCtrl.navigations">&gt; <a class="handCursor" uku-onclick="parent.cloudCtrl.navigationChanged(nav)" uku-text="nav.title"></a></span></span>
+        </nav>
+    </section>
+    <section class="wrap content">
+        <div id="categoryDiv" class="uku-include" replace="true" src="/web/html/cloud/categoryPanel.html"></div>
+        <div id="articleList" class="uku-include" src="/web/html/cloud/articleList.html" replace="true"></div>
+        <div id="articleDetail" class="uku-include" src="/web/html/cloud/articleDetail.html" replace="true"></div>
+    </section>
+    <section class="wrap" uku-style="cloudCtrl.articleListStatus">
+        <div class="uku-include" src="/web/html/cloud/pager.html"></div>
+    </section>
+    <section class="wrap page-top-box">
+        <div class="page-top">
+            <a href="#top"><i class="ico ico-top"></i></a>
+        </div>
+    </section>
+    <% include common/footer %>
+</body>
+
+</html>

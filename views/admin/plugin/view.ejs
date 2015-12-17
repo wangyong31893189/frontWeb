@@ -1,0 +1,81 @@
+<% include ../common/header %>
+<link rel="stylesheet" type="text/css" href="/libs/editor.md/css/editormd.min.css" />
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <!--<ul class="menu-list">-->
+            <!--<li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>-->
+            <!--<li><a href="/admin/category/list"><i class="ico ico-article"></i>文章管理</a></li>-->
+            <!--<li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>-->
+            <!--<li><a href="/admin/plugin/list"><i class="ico ico-article"></i>插件管理</a></li>-->
+            <!--<li><a href="/admin/user/info"><i class="ico ico-personal"></i>个人信息</a></li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right-box">
+        <div class="right-content publish-page">
+
+            <h2 class="title">查看分类</h2>
+            <div class="form-box">
+                <form action="/admin/plugin/add" method="post" id="plugin_form">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+
+                    <div class="row">
+                        <label class="label">插件名称:<span></span></label>
+                        <div class="input-box"><%=plugin.title %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">作者:<span></span></label>
+                        <div class="input-box"><%=plugin.author %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">实例地址:<span></span></label>
+                        <div class="input-box"><%=plugin.demoUrl %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">git地址:<span></span></label>
+                        <div class="input-box"><%=plugin.gitUrl %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label">标签:<span></span></label>
+                        <div class="input-box"><%=plugin.tags %></div>
+                    </div>
+                    <div class="row">
+                        <label class="label-txt">正文:<span></span></label>
+                        <div class="textarea-box" id="editormdView" style="line-height:initial;">
+                            <!-- <div class="editor"> --><!--注意：textarea里的 <-plugin.content %> 内容必须左顶起 不能有空格 否则html解析有误-->
+                            <textarea id="content" style="display:none;" placeholder="这里输入内容" autofocus name="content" ><%-plugin.content %></textarea>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <!-- <button type="button" class="save-btn active" id="submit_btn">保存</button> -->
+                            <button type="button" class="cancel-btn" onclick="history.back()">返回</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<script type="text/javascript" src="/libs/editor.md/editormd.js"></script>
+<script src="/admin/js/plugin/view.js"></script>
+<script src="/libs/editor.md/lib/marked.min.js"></script>
+<script src="/libs/editor.md/lib/prettify.min.js"></script>
+
+<script src="/libs/editor.md/lib/raphael.min.js"></script>
+<script src="/libs/editor.md/lib/underscore.min.js"></script>
+<script src="/libs/editor.md/lib/sequence-diagram.min.js"></script>
+<script src="/libs/editor.md/lib/flowchart.min.js"></script>
+<script src="/libs/editor.md/lib/jquery.flowchart.min.js"></script>
+

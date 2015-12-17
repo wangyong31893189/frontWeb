@@ -1,0 +1,78 @@
+<% include ../common/header %>
+
+<section class="content">
+    <div class="left-box">
+        <% include ../common/left %>
+        <ul class="menu-list">
+            <li><a href="/admin/category/list"><i class="ico ico-index"></i>我的首页</a></li>
+            <li><a href="/admin/article/list"><i class="ico ico-article"></i>文章管理</a></li>
+            <li class="active"><a href="/admin/category/list"><i class="ico ico-category"></i>类别管理</a></li>
+            <li><a href="#"><i class="ico ico-personal"></i>个人信息</a></li>
+        </ul>
+    </div>
+    <div class="right-box">
+        <div class="right-content publish-page">
+
+            <h2 class="title">编辑文章</h2>
+            <div class="form-box">
+                <form action="/admin/article/edit" method="post" id="category_form">
+                    <!-- <h3>注： 带 * 为必填项</h3> -->
+                    <input type="hidden" id="id" value="<%=article.id %>" name="id">
+                    <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                    <div class="row">
+                        <label class="label">作者:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="text" name="author" id="author" value="<%= user.userName %>" readonly></div>
+                    </div>
+
+                    <div class="row">
+                        <label class="label">文章标题:<span>*</span></label>
+                        <div class="input-box"><input class="input" type="text" name="articleName" id="articleName" value="<%=article.articleName %>" placeholder="请输入文章名称"></div>
+                    </div>
+
+                    <div class="row">
+                        <label class="label" title="<%=article.id %>">文章类别:<span>*</span></label>
+                        <div class="input-box">
+                            <!--categorys-->
+                            <select  name="categoryName" id="categoryName" >
+                                <% for(var i=0,len=categorys.length;i<len;i++){ %>
+                                    <% if(article.categoryName==categorys[i].categoryName){ %>
+                                         <option value="<%=categorys[i].categoryName %>" selected="true"><%=categorys[i].categoryName %></option>
+                                    <% }else{ %>
+                                        <option value="<%=categorys[i].categoryName %>" title="1111"><%=categorys[i].categoryName %></option>
+                                    <% } %>
+
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="label">正文:<span>*</span></label>
+                        <div class="input-box">
+                            <textarea id="desc" placeholder="这里输入内容" autofocus name="desc" ></textarea>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="row row-btn">
+                        <div class="text-center">
+                            <button type="button" class="save-btn active" id="submit_btn">保存</button>
+                            <button type="button" class="cancel-btn" onclick="history.back()">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 页尾内容 -->
+<!--  <footer class="foot">
+
+    </footer> -->
+<% include ../common/commonJs %>
+<script src="/admin/js/article/edit.js"></script>

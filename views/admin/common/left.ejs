@@ -1,0 +1,59 @@
+            <div class="user">
+                <div class="pic" style="border:0px solid red;border-radius:50%">
+                    <% if(user.picPath && user.picPath.length>0){ %>
+                        <img src="<%=user.picPath %>" width="39" height="39" style="border-radius:50%;border:2px solid #fff">
+                    <% }else{ %>
+                    <img src="/admin/images/pic.png" width="39" height="39" style="border-radius:50%;border:2px solid #fff">
+                    <% } %>
+
+                </div>
+                <div class="right">
+                    <h3><%=user.userName %></h3>
+                    <p><%=user.nickName %></p>
+                </div>
+            </div>
+            <ul class="menu-list">
+                <!--class="active"-->
+                <% if(user.urls['category_list']){ %>
+                <li><a href="/admin/category/list" data_localMenu="index"><i class="ico ico-index"></i>我的首页</a></li>
+                <% } %>
+                <% if(user.urls['article_list']){ %>
+                <li><a href="/admin/article/list" data_localMenu="article"><i class="ico ico-article"></i>文章管理</a></li>
+                <% } %>
+                <% if(user.urls['category_list']){ %>
+                <li><a href="/admin/category/list" data_localMenu="category"><i class="ico ico-category"></i>类别管理</a></li>
+                 <% } %>
+                <% if(user.urls['plugin_list']){ %>
+                <li><a href="/admin/plugin/list" data_localMenu="plugin"><i class="ico ico-plugin"></i>插件管理</a></li>
+                 <% } %>
+
+                <li><a href="/admin/user/info" data_localMenu="user"><i class="ico ico-personal"></i>个人信息</a></li>
+                <li><a href="/admin/user/changePassword/<%=user.id %>" data_localMenu="password"><i class="ico ico-personal"></i>修改密码</a></li>
+
+                <% if(user.urls['user_list']){ %>
+                <li><a href="/admin/user/list" data_localMenu="userAccount"><i class="ico ico-personal"></i>用户管理</a></li>
+                 <% } %>
+                <% if(user.urls['authority_list']){ %>
+                <li><a href="/admin/authority/list" data_localMenu="authority"><i class="ico ico-personal"></i>权限管理</a></li>
+                 <% } %>
+            </ul>
+            <!--<script>-->
+                <!--$(function(){-->
+                    <!--var menu_code={-->
+                        <!--init:function(){-->
+                            <!--console.log("111111");-->
+                            <!--$(".menu-list>li").click(function(){-->
+                                <!--//var that=$(this)-->
+                                <!--$(this).addClass("active").siblings().removeClass("active");-->
+                                <!--console.log( $(".menu-list>li"))-->
+                            <!--})-->
+                            <!--console.log( $(".menu-list>li"))-->
+
+                        <!--}-->
+                    <!--}-->
+                    <!--$(document).ready(function(){-->
+                        <!--menu_code.init();-->
+                    <!--})-->
+                <!--})-->
+
+            <!--</script>-->

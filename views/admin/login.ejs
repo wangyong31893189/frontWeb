@@ -1,0 +1,26 @@
+<div class="login-page">
+    <section class="content">
+        <div class="login-box">
+            <form action="/admin/login" method="post">
+              <h1>FME</h1>
+              <h2>99无限前端开发管理平台</h2>
+              <% if(typeof msg !== 'undefined'){ %>
+              <div><%= msg %></div>
+              <% } %>
+              <div class="row">
+                <label class="label">用户名：</label>
+                <span class="input-box"><i class="ico ico-login-user"></i><input type="text" name="userName" placeholder="请输入用户名"></span>
+              </div>
+              <div class="row">
+                <label class="label">密码：</label>
+                <span class="input-box"><i class="ico ico-login-pass"></i><input type="password" name="password" placeholder="请输入用户名"></span>
+              </div>
+              <div class="row">
+                <label class="label">&nbsp;</label>
+                <span class="button-box"><button class="login-btn" type="submit">登录</button></span>
+              </div>
+            </form>
+        </div>
+    </section>
+<div>
+<% include common/commonJs %>

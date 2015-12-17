@@ -1,0 +1,28 @@
+div#photoWall {
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.box {
+    max-width: 200px;
+    max-height: 200px
+    min-height: 100px;
+    padding: 10px;
+    position: absolute;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: width 0.5s, height 0.5s;
+    -moz-transition: width 0.5s, height 0.5s;
+    -webkit-transition: width 0.5s, height 0.5s;
+    -o-transition: width 0.5s, height 0.5s;
+    text-align: center;
+}
+
+.box img {
+    width: 100%;
+}

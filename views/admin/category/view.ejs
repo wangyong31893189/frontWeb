@@ -1,0 +1,49 @@
+<% include ../common/header %>
+
+    <section class="content">
+       <div class="left-box">
+        <% include ../common/left %>
+
+           </div>
+       <div class="right-box">
+          <!--  <div class="top"><input type="text" class="search-txt" placeholder="请输入文章名称"><button type="button" class="search-btn">搜索</button></div> -->
+           <div class="right-content publish-page">
+               <!-- <div class="actions">
+                   <button type="button" class="publish-btn"><i class="ico ico-publish"></i>发布
+                   </button>
+                   <button type="button" class="del-btn"><i class="ico ico-del"></i>删除</button>
+
+                    <button type="button" class="category-btn">全部分类<i class="ico ico-type-down"></i></button>
+               </div> -->
+               <h2 class="title">查看分类</h2>
+               <div class="form-box">
+               <form action="/admin/category/add" method="post" id="category_form">
+                 <!-- <h3>注： 带 * 为必填项</h3> -->
+                 <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                 <div class="row">
+                   <label class="label">分类代码:<span>*</span></label>
+                   <div class="input-box"><%=category.categoryCode %></div>
+                 </div>
+                 <div class="row">
+                   <label class="label">分类名称:<span>*</span></label>
+                   <div class="input-box"><%=category.categoryName %></div>
+                 </div>
+                 <div class="row row-btn">
+                   <div class="text-center">
+                     <!-- <button type="button" class="save-btn active" id="submit_btn">保存</button> -->
+                     <button type="button" class="cancel-btn" onclick="history.back()">返回</button>
+                   </div>
+                 </div>
+               </form>
+               </div>
+           </div>
+       </div>
+    </section>
+
+
+    
+<!-- 页尾内容 -->
+    <!--  <footer class="foot">
+       
+        </footer> -->
+<% include ../common/commonJs %>

@@ -1,0 +1,31 @@
+<!--<div>
+    <h3>{{cloudCtrl.currentArticle.title}}</h3>
+    <div id="test-editormd-view">
+        <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+    </div>
+</div>-->
+
+<div class="right-content" uku-style="cloudCtrl.articleDetailStatus">
+    <div class="top">
+        <div class="left">
+            <img src="web/images/photo.jpg">
+        </div>
+        <div class="right">
+            <h2 class="title" uku-text="cloudCtrl.currentArticle.title"></h2>
+            <p class="tag">作者：<span uku-text="cloudCtrl.currentArticle.author"></span> | 时间：<span uku-text="cloudCtrl.currentArticle.timeLabel"></span></p>
+        </div>
+    </div>
+    <div class="content-box">
+        <div id="test-editormd-view">
+            <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+        </div>
+    </div>
+
+    <div class="pager detail-pager">
+        <span>上一篇：<a class="handCursor" uku-onclick="cloudCtrl.articleItemClickHandler(cloudCtrl.previousArticle)" uku-text="cloudCtrl.previousArticle.title"></a></span>
+        <span>|</span>
+        <span>下一篇：<a class="handCursor" uku-onclick="cloudCtrl.articleItemClickHandler(cloudCtrl.nextArticle)" uku-text="cloudCtrl.nextArticle.title"></a></span>
+    </div>
+
+    <div class="uku-include" src="/web/html/cloud/commentPanel.html" replace="true"></div>
+</div>

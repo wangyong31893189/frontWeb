@@ -1,0 +1,29 @@
+{
+  "name": "fontweb",
+  "version": "0.0.1",
+  "authors": [
+    "wangyong31893189 <wangyong31893189@163.com>"
+  ],
+  "description": "movie demo",
+  "keywords": [
+    "FME"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "requirejs": "~2.1.20",
+    "domReady": "~2.0.1",
+    "ukulelejs": "pure",
+    "moment": "~2.10.6",
+    "validator-js": "~4.1.0",
+    "lodash": "~3.10.1"
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+        <%=title%>
+    </title>
+    <link href="../../web/css/common.css" rel="stylesheet">
+    <link href="../../web/css/member.css" rel="stylesheet">
+</head>
+
+<body>
+    <% include common/header %>
+        <section class="wrap">
+            <nav class="navigation">
+                <span>您当前的位置：</span><span><a class="handCursor" href="member">成员</a></span><span>
+        </nav>
+    </section>
+    <section class="wrap">
+        <div id="photoWall"></div>
+    </section>
+    <section class="wrap">
+        <p>
+FME 是99无限「Web 前端研发部」的内部名称，，简称“FME”，成立于2014年。崭新的团队赋予新的使命，我们将要以“不断提升99无限产品用户体验，带给用户良好的上网感受”为目标而努力。目前设计中心服务的产品包括99xxxxxxxxxxxxxxxxxxxxxxxxx基础产品等，这里聚合了100多名来自五湖四海的优秀设计师，努力打造“一流的”互联网设计团队!
+
+科学的设计流程是良好设计品质的保障，我们从一开始就在努力尝试和优化现有的设计流程，现在，设计中心有着较为明确的分工和流程。中心内部用户研究团队、交互设计团队、视觉设计团队各自专注自身领域，又时时融合一起，对设计质量的提升有积极的推动作用。未来，我们会不断在实践中摸索出“最适合”我们的工作方式。
+
+同样，设计品质的追求更体现在细节上面，我们本着“精雕细刻、精益求精”的态度琢磨每个细节，以“用户至上”的设计为出发点，兼顾“战略目标”完成每项设计。现在，我们门户、邮箱、博客等产品用户数达至数亿，每个页面凝结了我们的心血，作为设计师深感自豪的同时面对了更强大的挑战，我们会接受挑战并努力做好，因为我们会在用户的满足中找到自己的价值。
+
+其实，我们要是说的不仅仅这些，我们会关心用户浏览、用户操作、用户感受，为了用户有更好的上网体验，我们一直会努力！
+</p>
+    </section>
+    <% include common/footer %>
+</body>
+<script src="../../libs/jquery/dist/jquery.min.js"></script>
+<script src="../../libs/photoWall/wall.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var defList = [];
+        var container = document.getElementById("photoWall");
+        $.get('member/user',function(data){
+            function createItem(item) {
+                var box = document.createElement("div");
+                var img = document.createElement("img");
+                var deferred = $.Deferred();
+                defList.push(deferred);
+                $(img).load(function(){
+                    if(this.width < this.height){
+                        $(img).css("width","auto");
+                        $(img).css("height",'100%');
+                    }
+                    deferred.resolve();
+                });
+                $(img).attr("src", item.picPath);
+                
+                box.appendChild(img);
+                return box;
+            }
+
+            for (var i = 0; i < data.length; i++) {
+                var box = createItem(data[i]);
+                container.appendChild(box);
+            }
+            $.when.apply($,defList).done(function(){
+                var wall = new PhotoWall(container,"box");
+                wall.setHGap(1);
+                wall.setVGap(1);
+                wall.setRotate(10);
+                wall.layout();
+            });
+        });
+    });
+    
+</script>
+</html>

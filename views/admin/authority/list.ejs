@@ -1,0 +1,66 @@
+<% include ../common/header %>
+    <section class="content">
+        <div class="left-box">
+            <% include ../common/left %>
+        </div>
+        <div class="right-box">
+            <div class="right-content">
+                <div class="actions">
+                <input type="hidden" id="localMenu" value="<%=localMenu%>" name="localMenu">
+                <% if(user&&user.urls['authority_add']){ %>
+                    <button type="button" class="publish-btn" id="add_btn"><i class="ico ico-publish"></i>新添
+                    </button>
+                    <% } %>
+                    <% if(user&&user.urls['authority_del']){ %>
+                    <button type="button" class="del-btn" id="del_all_btn"><i class="ico ico-del"></i>删除</button>
+                    <% } %>
+                </div>
+                <table class="table" border="0" cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <% if(user&&user.urls['authority_del']){ %>
+                            <td width="5%">
+                                <input type="checkbox" class="ico" id="checkall">
+                            </td>
+                            <% } %>
+                            <td width="5%">序号</td>
+                            <td width="30%">角色</td>
+                            <td width="30%">操作</td>
+                        </tr>
+                    </thead>
+                    <tbody id="datalist">
+                        <% for(var i=0,len=roles.length;i<len;i++){ %>
+                            <tr>
+                                <% if(user&&user.urls['authority_del']){ %><td>
+                                    <input type="checkbox" class="ico" name="ids" value="<%=roles[i].id %>"><% } %>
+                                </td>
+                                <td>
+                                    <%= roles[i].id %>
+                                </td>
+                                <td>
+                                    <%= roles[i].roleName %>
+                                </td>
+                                <td>
+                                    <div class="operate-action">
+                                        <% if(user&&user.urls['authority_view']){ %><button type="button" class="view-btn" onclick="window.location.href='/admin/authority/view/<%=roles[i].id %>'"><i class="ico ico-view"></i>查看</button><% } %>
+                                        <% if(user&&user.urls['authority_edit']){ %><button type="button" class="edit-btn" onclick="window.location.href='/admin/authority/edit/<%=roles[i].id %>'"><i class="ico ico-edit"></i>编辑</button><% } %>
+                                        <% if(user&&user.urls['authority_del']){ %><button type="button" class="del-btn" data-id="<%=roles[i].id %>"><i class="ico ico-del"></i>删除</button><% } %>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="wrap page-top-box">
+        <div class="page-top">
+            <a href="#top"><i class="ico ico-top"></i></a>
+        </div>
+    </section>
+
+    <% include ../common/commonJs %>
+        <script type="text/javascript" src="/admin/js/message.js"></script>
+        <script type="text/javascript" src="/admin/js/authority/list.js"></script>
